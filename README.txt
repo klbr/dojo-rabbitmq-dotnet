@@ -20,3 +20,15 @@ Abaixo os passos a serem desenvolvidos. Ao finalizar cada item, favor commitar a
 Fontes para consulta: 
 https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html
 https://www.rabbitmq.com/tutorials/tutorial-six-dotnet.html
+
+
+Kleber
+Joao
+Gabriel Paulino
+Leonardo
+Tarik
+Hernan
+Nacho
+Cleber
+Brandão
+Andressa
