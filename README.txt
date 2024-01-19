@@ -23,9 +23,8 @@ https://www.rabbitmq.com/tutorials/tutorial-six-dotnet.html
 
 
 Kleber
-Cleber
-Hernan
-Leonardo
+Tarik
+Moura
 Gabriel
-Tharik
-Fernanda
+Leo
+Anderson

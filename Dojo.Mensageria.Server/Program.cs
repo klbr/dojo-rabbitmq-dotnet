@@ -24,15 +24,23 @@ namespace Dojo.Mensageria.Server
             Console.WriteLine(" [*] Waiting for messages.");
 
             var consumer = new EventingBasicConsumer(channel);
+
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-
+                var properties = channel.CreateBasicProperties();
+                properties.Persistent = true;
 
                 //Console.WriteLine($" [x] Received {message}");
                 var resposta = EPrimo(int.Parse(message));
-                if(resposta)
+                body = Encoding.UTF8.GetBytes(resposta.ToString());
+                channel.BasicPublish(exchange: string.Empty,
+                    routingKey: "hello",
+                    basicProperties: properties,
+                    body: body);
+
+                if (resposta)
                     Console.WriteLine("Resposta: numero:{0} é primo",message);
             };
             channel.BasicConsume(queue: "hello",

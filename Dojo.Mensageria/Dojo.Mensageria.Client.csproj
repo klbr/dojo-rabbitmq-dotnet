@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Dojo.Mensageria.Model\Dojo.Mensageria.Model.csproj" />
   </ItemGroup>
 
