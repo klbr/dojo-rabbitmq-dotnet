@@ -2,11 +2,13 @@
 {
     public class Publisher
     {
-        public int getNumber()
+        public (int,int) getNumbers()
         {
             Console.WriteLine("Digite um número:");
             String input = Console.ReadLine();
-            return int.Parse(input);
+            Console.WriteLine("Digite um número:");
+            String input2 = Console.ReadLine();
+            return (int.Parse(input),int.Parse(input2));
         }
 
         public static Publisher getPublisher()

@@ -12,18 +12,20 @@ namespace Dojo.Mensageria
             var factory = new ConnectionFactory { HostName = "localhost" };
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            Publisher publisher = Publisher.getPublisher();
-            int number = publisher.getNumber();
-            
             channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+            Publisher publisher = Publisher.getPublisher();
 
-            var body = Encoding.UTF8.GetBytes(number.ToString());
-
-            channel.BasicPublish(exchange: string.Empty, routingKey: "hello", basicProperties: null, body: body);
-
-
-            Console.WriteLine(" Press [enter] to exit.");
-                        Console.ReadLine();
+            while (true)
+            {
+                (int number, int number2) = publisher.getNumbers();
+                for (int i = number; i <= number2; i++)
+                {
+                    var body = Encoding.UTF8.GetBytes(i.ToString());
+                    channel.BasicPublish(exchange: string.Empty, routingKey: "hello", basicProperties: null, body: body);
+                    Console.WriteLine("Enviado o numero: " + i);
+                }
+                
+            }
         }
     }
 }
